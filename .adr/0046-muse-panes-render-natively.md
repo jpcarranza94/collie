@@ -5,8 +5,10 @@
 - **Shipped in:** _(set at the release commit)_
 - **Amends:** [0002](0002-invert-the-light-terminal-mirror.md) — narrows "every mirror inverts in
   light" with the per-agent exception 0002 reserves ("one bit is all the mirror needs").
-- **Trail:** every figure is WCAG relative luminance against the `#f5f5f5` light ground,
-  computed from live PTY captures of `muse` 1.2.1 (issue #220). Palette values below are
+- **Trail:** every figure is WCAG relative luminance against the light ground,
+  computed from live PTY captures of `muse` 1.2.1 (issue #220). Figures in Context /
+  Consequences are against page ground (`#f5f5f5`); the 2026-09-15 amendment moves the
+  native ground to the probed reference (`#fffbf8`) and re-states its figures there. Palette values below are
   observed, all three background answers plus the no-answer fallback Herdr panes carry
   (Herdr answers neither OSC 10 nor OSC 11 — HERDR_API.md, live-probed 2026-07-29).
 
@@ -119,3 +121,15 @@ What would justify revisiting:
 - **A real Muse adapter** — if one registers, its statusline strip (which stays
   inverted) and this display pass need one decision between them; the pass applies to
   raw blocks already, so the strip is the only open half.
+
+## Amendment (2026-09-15) — ground matches the probed reference
+
+Herdr 0.9.0's light background, probed live via OSC 11 on a scratch pane
+(`rgb:ffff/fbfb/f8f8`), is `#fffbf8` — 10 steps above the page ground first chosen.
+Page ground compressed Muse's authored fills past visibility (the 236 prompt fill at
+1.08:1, measured; the prompt block melted into the page on the phone). The native
+light ground is now the probed reference, so every tone renders at authored contrast —
+pixel-identical to the agent's own screen. Revised native figures: body 11.0,
+secondary 4.2, hints 2.1, near-white mark 19.2, muted 6.4, prompt-fill edge 1.15. The
+whisper seam against the page is deliberate (fidelity beats seamlessness); dark is
+untouched.
